@@ -1,0 +1,11 @@
+{% extends "studentpage.html" %}
+
+{% block content %}
+    <h1>Submit Your Application</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Application</button>
+    </form>
+{% endblock %}

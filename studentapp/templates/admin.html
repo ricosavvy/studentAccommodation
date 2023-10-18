@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'admin_dashboard' %}">Admin Dashboard</a></li>
+            <li><a href="{% url 'manage_rooms' %}">Manage Rooms</a></li>
+            <li><a href="{% url 'manage_students' %}">Manage Students</a></li>
+            <li><a href="{% url 'manage_applications' %}">Manage Applications</a></li>
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+        </ul>
+    </nav>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

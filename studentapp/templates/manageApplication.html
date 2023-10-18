@@ -1,0 +1,24 @@
+{% extends "admin.html" %}
+
+{% block content %}
+    <h1>Manage Applications</h1>
+
+    <table>
+        <tr>
+            <th>Student ID</th>
+            <th>Application Status</th>
+            <th>Actions</th>
+        </tr>
+        {% for application in applications %}
+        <tr>
+            <td>{{ application.student_id }}</td>
+            <td>{{ application.application_status }}</td>
+            <td>
+                <a href="{% url 'view_application_details' application.id %}">View Details</a>
+                <a href="{% url 'approve_application' application.id %}">Approve</a>
+                <a href="{% url 'reject_application' application.id %}">Reject</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

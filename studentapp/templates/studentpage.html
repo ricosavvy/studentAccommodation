@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Student Dashboard</h1>
+    <ul>
+        <li><a href="{% url 'my_accommodation' %}">My Accommodation</a></li>
+        <li><a href="{% url 'my_application' %}">My Application</a></li>
+        <li><a href="{% url 'notifications' %}">Notifications</a></li>
+        <li><a href="{% url 'profile' %}">Profile</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+    </ul>
+    <div>
+        {% block content %}
+        <h1>Welcome, {{ student.first_name }} {{ student.last_name }}</h1>
+        
+    
+        <!-- Display all fields of the Student model -->
+        <div>
+            <ul>
+                {% for field, value in student.__dict__.items %}
+                    <li>{{ field }}: {{ value }}</li>
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for field, value in academic_info.__dict__.items %}
+                <li>{{ field }}: {{ value }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+
+        {% endblock %}
+    </div>
+</body>
+</html>
